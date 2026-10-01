@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Esercizio di ripasso</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+        #dg{
+            position: absolute;
+            border: 1px black dotted;
+        }
+</style>
+</head>
+<body>
+<div style="width: fit-content; text-align: center;">
+<button id= "ciao" onclick="spostaSu()">su</button> <br>
+<button onclick="spostaSinistra()">sinistra</button>
+<button onclick="spostaDestra()">destra</button> <br>
+<button onclick="spostaGiù()">giù</button>
+</div>
+<div>sposta david dove vuoi tu</div>
+<div id="farfalla" style="position:absolute">🦋</div>
+<img  id="dg" src="Gnomo_HM.webp"alt="David gnomo">-
+<script>
+        let x = 100;
+        let y = 50;
+        let gnomo = document.getElementById("dg");
+        gnomo.style.left = x + "px";
+        gnomo.style.top = y + "px";
+        //aggiungo un avento con l'uso di una funzion anonima
+        //window.addEventListener("keydown", (event) => { console.log(event.key)})
+        window.addEventListener("keydown", tasto)
+        function tasto(event){
+            console.log(event.key);
+            if (event.key == "w") spostaSu();
+            if (event.key == "a") spostaSinistra();
+            if (event.key == "s") spostaGiù();
+            if (event.key == "d") spostaDestra();
+        }
+        function spostaSu(){
+           y -= 10;
+           gnomo.style.top = y + "px";
+        }
+        function spostaGiù(){
+            y+=10;
+            gnomo.style.top = y + "px";
+        }
+        function spostaSinistra(){
+            x-=10;
+            gnomo.style.left = x + "px"
+        }
+        function spostaDestra(){
+            x+=10;
+            gnomo.style.left = x + "px"
+        }
+        let farfalla = document.getElementById("farfalla");
+        function muoviFarfalla(){
+            farfalla.style.left = Math.random() * 500 + "px";
+            farfalla.style.top = Math.random() * 500 + "px";
+        }
+        setInterval(muoviFarfalla, 500);
+</script>
+</body>
+</html>
+ 
