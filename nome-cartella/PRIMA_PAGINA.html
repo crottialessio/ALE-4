@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+</head>
+<style>
+
+    #TITOLO{
+        color: rgba(255, 0, 0, 0.651);
+        font-size: 60px;
+        width: 100%;          /* Occupa il 90% della larghezza della pagina su mobile */
+        max-width: 1200px;
+        font-weight: bold;
+        text-align: center;
+        
+    }
+    #sottotitolo{
+        font-family: cursive;
+    }
+    .area_testi{
+        text-align: center;
+
+    }
+    .testo{text-align: center;}
+</style><!--FINE STYLE-->
+<body>
+    <div id="TITOLO">GRAZIE POLY  </div>
+    <div id="sottotitolo">poly sei invincibile</div>
+<div class="w3-row">
+         <div class="w3-half w3-red">
+            <p class="testo">IMMETTERE I NOMI DEI PRODOTTI:</p>
+            <ul>
+  <li>ACQUA</li>
+  <li>PASTA</li>
+  <li>BUSTE</li>
+</ul>
+            <div class="area_testi"><textarea name="prodotto" id="listaa" placeholder="immetti qua"> </textarea>
+            <button onclick="aggiungi()">Aggiungi</button>
+            </div><!--DIV FINITO AREA TEXT E BUTTON-->
+            
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+         <div class="w3-half w3-blue"> <div class="w3-half w3-blue">
+<p>PRODOTTI ACQUISTATI </p>
+
+<ul id="listaProdotti"></ul>
+</div>
+    
+    
+    <script>
+    const pre_lista = ["ACQUA", "PASTA", "BUSTE","PANE"];
+const miaLista = [];
+function aggiungi() {
+let textarea = document.getElementById("listaa");
+let testo = textarea.value.trim().toUpperCase();
+if (pre_lista.includes(testo)) {
+miaLista.push(testo);
+let li = document.createElement("li");
+li.textContent = testo;
+document.getElementById("listaProdotti").appendChild(li);
+console.log(miaLista);
+} else {alert("prodotto non valido")}
+
+textarea.value = "";
+}
+</script>
+</body>
+</html>
